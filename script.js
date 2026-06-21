@@ -1,3 +1,16 @@
+const SUPABASE_URL =
+"https://heybvjxiuhqmmzexywhp.supabase.co";
+
+const SUPABASE_ANON_KEY =
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhleWJ2anhpdWhxbW16ZXh5d2hwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIwNTU0OTEsImV4cCI6MjA5NzYzMTQ5MX0.5Okn1q_efdNKHk_Pz1hzAhfJwsb1cyo2VeTU4GSJT-s";
+
+const supabase =
+window.supabase.createClient(
+   https://heybvjxiuhqmmzexywhp.supabase.co,
+ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhleWJ2anhpdWhxbW16ZXh5d2hwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIwNTU0OTEsImV4cCI6MjA5NzYzMTQ5MX0.5Okn1q_efdNKHk_Pz1hzAhfJwsb1cyo2VeTU4GSJT-s,
+
+);
+
 const questions = [
   {
     section: "Trading Background",
@@ -510,8 +523,46 @@ document.getElementById("continueBtn").addEventListener("click", () => {
   waitlistScreen.classList.add("active");
 });
 
-document.getElementById("waitlistForm").addEventListener("submit", (e) => {
-  waitlistScreen.classList.remove("active");
-  thankyouScreen.classList.add("active");
+document.getElementById("waitlistForm").addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    const form = e.target;
+
+    const name = form.name.value;
+    const email = form.email.value;
+
+    const { error } = await supabase
+        .from("survey_responses")
+        .insert([{
+            name,
+            email,
+
+            q1: answers[0] || "",
+            q2: answers[1] || "",
+            q3: answers[2] || "",
+            q4: answers[3] || "",
+            q5: answers[4] || "",
+            q6: JSON.stringify(answers[5] || []),
+            q7: answers[6] || "",
+            q8: answers[7] || "",
+            q9: answers[8] || "",
+            q10: answers[9] || "",
+            q11: answers[10] || "",
+            q12: answers[11] || "",
+            q13: answers[12] || "",
+            q14: answers[13] || "",
+            q15: answers[14] || ""
+        }]);
+
+    if (error) {
+        console.error(error);
+        alert("Submission failed.");
+        return;
+    }
+
+    waitlistScreen.classList.remove("active");
+    thankyouScreen.classList.add("active");
+});
   console.log("Survey Answers", answers);
 });
