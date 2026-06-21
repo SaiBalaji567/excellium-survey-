@@ -564,5 +564,3 @@ document.getElementById("waitlistForm").addEventListener("submit", async (e) => 
     waitlistScreen.classList.remove("active");
     thankyouScreen.classList.add("active");
 });
-  console.log("Survey Answers", answers);
-});
