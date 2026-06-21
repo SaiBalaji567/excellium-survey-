@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EXCELLIUM.IO | AI Trading Intelligence Assessment</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="background-glow"></div>
+
+<div class="container">
+
+<header>
+    <div class="logo">
+        EXCELLIUM.IO
+    </div>
+
+    <div class="tagline">
+        AI Trading Intelligence Assessment
+    </div>
+</header>
+
+<section id="hero-screen" class="screen active">
+
+    <div class="hero-card">
+
+        <div class="badge">
+            ⚡ Founding Trader Assessment
+        </div>
+
+        <h1>
+            Shape The Future Of AI Trading
+        </h1>
+
+        <p>
+            Help us understand the challenges traders face and get early access to Excellium.
+        </p>
+
+        <div class="hero-details">
+
+            <div>
+                ⏱ 2-4 Minutes
+            </div>
+
+            <div>
+                🔒 Anonymous Responses
+            </div>
+
+        </div>
+
+        <button id="startBtn" class="primary-btn">
+            Start Assessment
+        </button>
+
+    </div>
+
+</section>
+
+<section id="survey-screen" class="screen">
+
+    <div class="progress-wrapper">
+        <div id="progress-bar"></div>
+    </div>
+
+    <div class="question-meta">
+
+        <div id="section-title"></div>
+
+        <div id="question-count">
+            Question 1 of 15
+        </div>
+
+    </div>
+
+    <div class="survey-card">
+
+        <h2 id="question-text"></h2>
+
+        <div id="options-container"></div>
+
+        <div class="navigation">
+
+            <button id="prevBtn">
+                Previous
+            </button>
+
+            <button id="nextBtn">
+                Next
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="intro-screen" class="screen">
+
+    <div class="survey-card intro-card">
+
+        <div id="intro-content">
+
+            <div class="intro-slide active">
+
+                <div class="intro-brand">
+                    <span class="meet">meet</span>
+                    <span class="brand-name">EXCELLIUM</span>
+                </div>
+
+                <div class="intro-subtitle">
+                    AI-Powered Trading Intelligence
+                </div>
+
+                <p class="intro-text">
+                    Excellium is designed to simplify the entire trading journey through AI and automation.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="navigation">
+
+            <button id="introPrevBtn">
+                Previous
+            </button>
+
+            <button id="introNextBtn">
+                Continue
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="results-screen" class="screen">
+
+    <div class="result-card">
+
+        <h2>
+            Your Trader Profile
+        </h2>
+
+        <div id="profile-summary"></div>
+
+        <button id="continueBtn" class="primary-btn">
+            Join Early Access
+        </button>
+
+    </div>
+
+</section>
+
+<section id="waitlist-screen" class="screen">
+
+    <div class="result-card">
+
+        <h2>
+            Join The Founding Trader List
+        </h2>
+
+        <p>
+            Be among the first users to access Excellium.
+        </p>
+
+        <form
+            id="waitlistForm"
+            action="YOUR_FORMSPREE_ENDPOINT"
+            method="POST">
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                required>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                required>
+
+            <button
+                type="submit"
+                class="primary-btn">
+
+                Join Waitlist
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<section id="thankyou-screen" class="screen">
+
+    <div class="result-card">
+
+        <h2>
+            🚀 You're In
+        </h2>
+
+        <p>
+            Thank you for helping shape Excellium.
+        </p>
+
+    </div>
+
+</section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

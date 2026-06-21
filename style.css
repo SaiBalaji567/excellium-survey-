@@ -1,0 +1,528 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #050816;
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ========= BACKGROUND ========= */
+
+.background-glow {
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    background: #00ffae22;
+    filter: blur(180px);
+    top: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+/* ========= LAYOUT ========= */
+
+.container {
+    width: 100%;
+    max-width: 850px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* ========= HEADER ========= */
+
+header {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.logo {
+    color: #00ffae;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.tagline {
+    color: #94a3b8;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+/* ========= SCREENS ========= */
+
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+    animation: fadeIn .35s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========= CARDS ========= */
+
+.hero-card,
+.survey-card,
+.result-card {
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 0 25px rgba(0, 255, 174, .08);
+}
+
+/* ========= HERO ========= */
+
+.badge {
+    display: inline-block;
+    padding: 10px 16px;
+    background: #00ffae15;
+    border: 1px solid #00ffae55;
+    color: #00ffae;
+    border-radius: 999px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.hero-card {
+    text-align: center;
+}
+
+.hero-card h1 {
+    font-size: 42px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.hero-card p {
+    color: #94a3b8;
+    max-width: 600px;
+    margin: auto;
+}
+
+.hero-details {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 30px 0;
+    color: #cbd5e1;
+}
+
+/* ========= BUTTONS ========= */
+
+.primary-btn {
+    background: #00ffae;
+    color: black;
+    border: none;
+    border-radius: 14px;
+    padding: 14px 24px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(0, 255, 174, .5);
+}
+
+#nextBtn,
+#prevBtn {
+    background: #0f172a;
+    color: white;
+    border: 1px solid #334155;
+    border-radius: 14px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: .25s;
+}
+
+#nextBtn:hover,
+#prevBtn:hover {
+    border-color: #00ffae;
+    box-shadow: 0 0 20px rgba(0, 255, 174, .25);
+}
+
+/* ========= PROGRESS ========= */
+
+.progress-wrapper {
+    width: 100%;
+    height: 10px;
+    background: #1e293b;
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #00ffae, #00d18f);
+    transition: .4s;
+}
+
+/* ========= QUESTION META ========= */
+
+.question-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+#section-title {
+    color: #00ffae;
+    font-weight: 600;
+}
+
+/* ========= QUESTION ========= */
+
+#question-text {
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* ========= OPTIONS ========= */
+
+.option {
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 16px;
+    margin-top: 12px;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.option:hover {
+    border-color: #00ffae;
+}
+
+.option.selected {
+    border-color: #00ffae;
+    background: #00ffae10;
+    box-shadow: 0 0 20px rgba(0, 255, 174, .2);
+}
+
+/* ========= TEXTAREA ========= */
+
+textarea {
+    width: 100%;
+    min-height: 140px;
+    resize: none;
+    padding: 16px;
+    background: #111827;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    color: white;
+    font-family: inherit;
+    outline: none;
+}
+
+textarea:focus {
+    border-color: #00ffae;
+}
+
+/* ========= INPUTS ========= */
+
+input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 14px;
+    border: 1px solid #334155;
+    background: #111827;
+    color: white;
+    margin-top: 12px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #00ffae;
+}
+
+/* ========= NAVIGATION ========= */
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 28px;
+}
+
+/* ========= PROFILE SUMMARY ========= */
+
+#profile-summary {
+    margin-top: 20px;
+    color: #cbd5e1;
+    line-height: 2;
+}
+
+/* ========= EXCELLIUM INTRO SCREEN ========= */
+
+.intro-card {
+    overflow: hidden;
+    position: relative;
+}
+
+#intro-content {
+    min-height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro-slide {
+    width: 100%;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity .35s ease, transform .35s ease;
+    display: none;
+}
+
+.intro-slide.active {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.intro-subtitle {
+    color: #00ffae;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.intro-text {
+    color: #cbd5e1;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+/* ========= CUSTOM BRAND & GRID UPGRADES ========= */
+
+.intro-hero {
+    text-align: center;
+    max-width: 700px;
+    margin: auto;
+}
+
+.intro-brand {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 16px;
+}
+
+.meet {
+    color: #00ffae;
+    font-size: 48px;
+    font-weight: 300;
+}
+
+.brand-name {
+    font-size: 96px;
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+}
+
+.intro-divider {
+    width: 60px;
+    height: 3px;
+    background: #00ffae;
+    margin: 24px auto;
+    border-radius: 999px;
+}
+
+.slide-heading {
+    text-align: center;
+    font-size: 54px;
+    margin-bottom: 10px;
+}
+
+.feature-list,
+.vision-list {
+    list-style: none;
+    max-width: 700px;
+    margin: auto;
+}
+
+.feature-list li,
+.vision-list li {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+.feature-check {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid #00ffae;
+    color: #00ffae;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.vision-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.vision-quote {
+    padding-left: 40px;
+    border-left: 1px solid rgba(255, 255, 255, .08);
+}
+
+.quote-mark {
+    font-size: 64px;
+    color: #00ffae;
+    line-height: 1;
+}
+
+.vision-quote p {
+    font-size: 28px;
+    line-height: 1.5;
+}
+
+.intro-note {
+    margin-top: 30px;
+    color: #94a3b8;
+}
+
+/* ========= INTRO NAV BUTTONS ========= */
+
+#introPrevBtn,
+#introNextBtn {
+    background: #0f172a;
+    color: white;
+    border: 1px solid #334155;
+    border-radius: 14px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: .25s;
+}
+
+#introPrevBtn:hover {
+    border-color: #00ffae;
+    box-shadow: 0 0 20px rgba(0, 255, 174, .2);
+}
+
+#introNextBtn {
+    background: #00ffae;
+    color: black;
+    border: none;
+    font-weight: 700;
+}
+
+#introNextBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(0, 255, 174, .45);
+}
+
+/* ========= RESPONSIVE BREAKPOINTS ========= */
+
+@media(max-width: 768px) {
+    .hero-card h1 {
+        font-size: 30px;
+    }
+
+    .hero-details {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .question-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .navigation {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #nextBtn,
+    #prevBtn,
+    .primary-btn,
+    #introPrevBtn,
+    #introNextBtn {
+        width: 100%;
+    }
+
+    .hero-card,
+    .survey-card,
+    .result-card {
+        padding: 24px;
+    }
+
+    /* Intro Panels Fluid System */
+    .intro-brand {
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+    }
+
+    .meet {
+        font-size: 32px;
+    }
+
+    .brand-name {
+        font-size: 58px;
+    }
+
+    .slide-heading {
+        font-size: 42px;
+    }
+
+    .vision-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .vision-quote {
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, .08);
+        padding-left: 0;
+        padding-top: 30px;
+    }
+
+    .vision-quote p {
+        font-size: 22px;
+    }
+}
