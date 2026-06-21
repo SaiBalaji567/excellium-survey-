@@ -511,7 +511,6 @@ document.getElementById("continueBtn").addEventListener("click", () => {
 });
 
 document.getElementById("waitlistForm").addEventListener("submit", (e) => {
-  e.preventDefault();
   waitlistScreen.classList.remove("active");
   thankyouScreen.classList.add("active");
   console.log("Survey Answers", answers);
