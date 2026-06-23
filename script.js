@@ -526,7 +526,7 @@ document.getElementById("waitlistForm").addEventListener("submit", async (e) => 
     const email = form.email.value;
 
     const { error } = await supabase
-        .from("survey_responses")
+        .from("survey responses")
         .insert([{
             name,
             email,
